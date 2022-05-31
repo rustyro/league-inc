@@ -1,0 +1,36 @@
+#!/bin/bash
+#set -exu
+
+BASH_DIR=$(cd $(dirname $0) && pwd)
+VENV_DIR="${BASH_DIR}/venv"
+ERRO=none
+
+case $1 in
+'init')
+  pip install virtualenv
+  python -m virtualenv venv
+  . venv/bin/activate
+  pip install -r requirements.txt ;;
+'start')
+  if [ ! -f "$VENV_DIR" ]
+    then
+      . $VENV_DIR/bin/activate || ERRO=error
+      if [ $ERRO == error ]
+        then
+          echo PLEASE INITIALIZE THE APP WITH './run init'
+          exit
+      fi
+      FLASK_APP=main flask run --port 8083
+  fi ;;
+'test')
+  if [ ! -f "$VENV_DIR" ]
+    then
+      . $VENV_DIR/bin/activate || ERRO=error
+      if [ $ERRO == error ]
+        then
+          echo PLEASE INITIALIZE THE APP WITH './run init'
+          exit
+      fi
+      pytest -v
+  fi ;;
+esac

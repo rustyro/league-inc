@@ -1,3 +1,4 @@
+import re
 from typing import List, Tuple, Union
 
 from app import app
@@ -14,8 +15,7 @@ ALLOWED_EXTENSIONS = ['csv']
 
 
 def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return re.match(r'^.*\.(csv)$', filename)
 
 
 def validate_content(
@@ -72,6 +72,7 @@ def process_request():
             raise exceptions.BadRequest(NO_FILE_ERR)
 
         file = request.files['file']
+
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
         if file.filename == '' or not allowed_file(file.filename):

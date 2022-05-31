@@ -38,7 +38,7 @@ class TestView:
         assert res.text == '1,4,7\n2,5,8\n3,6,9'
 
     def test_flatten(self, client, get_file):
-        """ Test the flatten endpoint"""
+        """ Test the 'flatten' endpoint"""
         res = upload("/flatten", client, get_file)
         assert res.text == '1,2,3,4,5,6,7,8,9'
 

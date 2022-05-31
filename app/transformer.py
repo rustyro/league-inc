@@ -8,7 +8,10 @@ from typing import List
 
 class Transformer:
     """
-    Transformer class with useful methods to manipulate square matrices
+    Transformer class with useful methods to manipulate square matrices.
+    To maintain efficiency functions in this class DO NOT support integer datatypes as values for a matrix index,
+    given that values from the CSV file uploaded will always be of type string.
+    If used the functions will always raise an error
     """
 
     @classmethod
@@ -33,7 +36,6 @@ class Transformer:
         :param matrix: an array of comma separated integer strings
         :return: Inverted matrix
         """
-        # matrix = [i.replace(",", "") for i in matrix]
         rows = len(matrix)
         columns = len(matrix[0])
 
