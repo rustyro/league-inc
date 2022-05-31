@@ -1,0 +1,6 @@
+INVALID_FILE_ERR = "Please upload a valid CSV file"
+BLANK_FILE_ERR = "Bad input - Cannot have an empty matrix"
+NO_FILE_ERR = "You have not uploaded any file, upload a valid CSV file"
+NON_INT_ERR = "Bad input - All values in the matrix MUST be integers"
+NON_SQUARE_ERR = "Bad input - expecting a square matrix"
+CORRUPT_FILE_ERR = "Corrupt File - unable to read the supplied CSV file"

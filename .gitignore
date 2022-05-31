@@ -1,0 +1,12 @@
+.idea/
+.redis/
+.venv/
+__pycache__
+.foo/
+.vscode
+.DS_Store
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
