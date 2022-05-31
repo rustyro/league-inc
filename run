@@ -4,6 +4,9 @@
 BASH_DIR=$(cd $(dirname $0) && pwd)
 VENV_DIR="${BASH_DIR}/venv"
 ERRO=none
+#export DEF_PORT=$2
+
+port=${PORT:-8083}
 
 case $1 in
 'init')
@@ -20,7 +23,7 @@ case $1 in
           echo PLEASE INITIALIZE THE APP WITH './run init'
           exit
       fi
-      FLASK_APP=main flask run --port 8083
+      FLASK_APP=main flask run --port $port
   fi ;;
 'test')
   if [ ! -f "$VENV_DIR" ]

@@ -30,6 +30,9 @@ The server is started with
 ```shell
 ./run start
 
+# the application runs on port 8083 by default but you can specify a port using
+PORT=8091 ./run start
+
 ```
 A request can be sent using curl like so:
 
